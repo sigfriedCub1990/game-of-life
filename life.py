@@ -151,11 +151,14 @@ def read_pattern_from_file(filename):
 if __name__ == "__main__":
     board = read_pattern_from_file("gosper_glider_gun.in")
     cells = get_inital_cells(board)
+    generation = 1
     while True:
         os.system("clear")
+        print(f"Generation: {generation}")
         print_board(board)
         [new_board, next_generation] = life(board, cells)
         board = new_board
         cells = next_generation
         time.sleep(1)
         os.system("clear")
+        generation += 1
