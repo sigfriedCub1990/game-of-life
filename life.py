@@ -44,6 +44,11 @@ def get_adjacent_neighbours_count(board, cell):
 
 
 def get_dead_cells(board, cells):
+    """Compute which cells will die on this tick
+
+    1. A cell dies if it has less than 2 neighbours (loneliness)
+    2. A cell also dies if it has more than 3 neighbours (overpopulation)
+    """
     dead_cells = set()
 
     for cell in cells:
@@ -55,6 +60,9 @@ def get_dead_cells(board, cells):
 
 
 def get_adjacent_neighbours(board, live_cell):
+    """
+    Get squares(neighbours) adjacent to a cell
+    """
     adjacent_neighbours = []
 
     for move in MOVES:
