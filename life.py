@@ -104,9 +104,9 @@ def print_board(board):
     for row in range(len(board)):
         for column in range(len(board[row])):
             if board[row][column] != 0:
-                print(f"{Bcolors.OKGREEN}X{Bcolors.ENDC}", end=" ")
+                print(f"{Bcolors.OKGREEN}*{Bcolors.ENDC}", end=" ")
             else:
-                print("_", end=" ")
+                print("-", end=" ")
         print()
 
 
