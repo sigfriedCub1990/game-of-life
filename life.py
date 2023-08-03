@@ -23,15 +23,20 @@ class Bcolors:
         self.ENDC = ""
 
 
+def is_position_in_range(pos_x, pos_y, board):
+    board_size_x = len(board)
+    board_size_y = len(board[0])
+    return pos_x >= 0 and pos_x < board_size_x and pos_y >= 0 and pos_y < board_size_y
+
+
 def get_adjacent_neighbours_count(board, cell):
     neighbours = 0
-    board_size = len(board)
     for move in MOVES:
         (dx, dy) = move
         (cx, cy) = cell
         pos_x = cx + dx
         pos_y = cy + dy
-        if pos_x >= 0 and pos_x < board_size and pos_y >= 0 and pos_y < board_size:
+        if is_position_in_range(pos_x, pos_y, board):
             if board[pos_x][pos_y] == 1:
                 neighbours += 1
 
@@ -52,13 +57,12 @@ def get_dead_cells(board, cells):
 def get_adjacent_neighbours(board, live_cell):
     adjacent_neighbours = []
 
-    board_size = len(board)
     for move in MOVES:
         (dx, dy) = move
         (cx, cy) = live_cell
         pos_x = cx + dx
         pos_y = cy + dy
-        if pos_x >= 0 and pos_x < board_size and pos_y >= 0 and pos_y < board_size:
+        if is_position_in_range(pos_x, pos_y, board):
             if board[pos_x][pos_y] != 1:
                 adjacent_neighbours.append((pos_x, pos_y))
 
