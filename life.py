@@ -159,6 +159,6 @@ if __name__ == "__main__":
         [new_board, next_generation] = life(board, cells)
         board = new_board
         cells = next_generation
-        time.sleep(1)
+        time.sleep(0.3)
         os.system("clear")
         generation += 1
