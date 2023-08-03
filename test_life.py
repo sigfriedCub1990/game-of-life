@@ -110,13 +110,13 @@ class GameOfLifeTests(unittest.TestCase):
 
     def test_get_newborn_cells(self):
         board = [
+            [0, 0, 1, 0, 0],
             [0, 0, 0, 0, 0],
-            [0, 0, 1, 0, 0],
-            [0, 0, 1, 0, 0],
-            [0, 0, 1, 0, 0],
+            [0, 1, 1, 0, 0],
+            [0, 0, 0, 0, 0],
             [0, 0, 0, 0, 0],
         ]
-        cells = [(1, 2), (2, 2), (3, 2)]
+        cells = [(0, 2), (2, 1), (2, 2)]
         newborn_cells = get_newborn_cells(board, cells)
 
         self.assertEqual(newborn_cells, [(1, 2), (1, 1)])
@@ -142,7 +142,7 @@ class GameOfLifeTests(unittest.TestCase):
                     [0, 0, 0, 0, 0],
                     [0, 0, 0, 0, 0],
                 ],
-                [(2, 3), (2, 1), (2, 2)],
+                [(2, 1), (2, 3), (2, 2)],
             ],
         )
 
