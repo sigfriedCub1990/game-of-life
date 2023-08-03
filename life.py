@@ -110,6 +110,16 @@ def print_board(board):
         print()
 
 
+def get_inital_cells(board):
+    cells = []
+    for row in range(len(board)):
+        for column in range(len(board[row])):
+            if board[row][column] == 1:
+                cells.append((row, column))
+
+    return cells
+
+
 if __name__ == "__main__":
     board = [
         [0, 0, 0, 0, 0, 0, 0, 0, 0],
