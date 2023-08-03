@@ -99,11 +99,11 @@ def get_newborn_cells(board, cells):
     return newborn_cells
 
 
-def life(board, initial_cells):
+def life(board, cells):
     board_copy = board.copy()
-    newborn_cells = get_newborn_cells(board, initial_cells)
-    dead_cells = get_dead_cells(board, initial_cells)
-    live_cells = set(initial_cells).difference(dead_cells)
+    newborn_cells = get_newborn_cells(board, cells)
+    dead_cells = get_dead_cells(board, cells)
+    live_cells = set(cells).difference(dead_cells)
     next_generation = [*newborn_cells, *[live for live in live_cells]]
 
     for newborn in newborn_cells:
