@@ -11,4 +11,4 @@ This is a dummy implementation of Conway's Game of Life
 
 ## Preview
 
-![glider](https://github.com/sigfriedCub1990/game-of-life/assets/8824202/47daa65d-446d-4e51-bab4-200dbcd2374e)
+![ezgif com-crop](https://github.com/sigfriedCub1990/game-of-life/assets/8824202/869d1f76-f996-42df-aeec-141d160ef91f)
