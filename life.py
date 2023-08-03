@@ -70,13 +70,18 @@ def get_adjacent_neighbours(board, live_cell):
 
 
 def get_newborn_cells(board, cells):
-    dead_cells = get_dead_cells(board, cells)
-    live_cells = set(cells).difference(dead_cells)
-    maybe_newborn_cells = []
-    for live_cell in live_cells:
-        adjacent_neighbours = get_adjacent_neighbours(board, live_cell)
-        prev = maybe_newborn_cells.copy()
-        maybe_newborn_cells = [*prev, *adjacent_neighbours]
+    """Computes which cells will be born in the next generation
+
+    It does so by:
+    1. Calculating all the neighbours squares for the existing cells
+    2. Determines if those neighbours squares have 3 adjacent cells
+    3. If 2 is True then a new cell is born in that square
+    """
+    maybe_newborn_cells = set()
+    for current_cell in cells:
+        adjacent_neighbours = get_adjacent_neighbours(board, current_cell)
+        for neighbour in adjacent_neighbours:
+            maybe_newborn_cells.add(neighbour)
 
     newborn_cells = []
     for maybe_newborn in maybe_newborn_cells:
